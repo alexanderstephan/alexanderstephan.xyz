@@ -216,11 +216,12 @@ ul.share-icons li > * .label {
 /* @media only screen and (min-width : 0px) and (max-width: 550px) {
     #social-entries { display: none; } 
 } */
-
+/*
 @media only screen and (max-width : 550px) {
     #social-entries { display: none; }
     #social-entries-alt {display: inline; }
 }
+*/
 
 @media only screen and (min-width : 999px) {
    #social-entries { display: inline; }
