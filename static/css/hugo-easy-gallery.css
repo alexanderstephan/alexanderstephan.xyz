@@ -9,36 +9,41 @@ Grid Layout Styles
 */
 .gallery {
     overflow: hidden;
-    margin: 0px;
-    max-width: 2000px;
+    margin: 10px;
+    max-width: 768px;
 }
 .gallery .box {
     float: left;
     position: relative;
     /* Default: 1 tile wide */
-    width: 25%;
+    width: 100%;
     padding-bottom: 100%; 
 }
 @media only screen and (min-width : 365px) {
     /* Tablet view: 2 tiles */
     .gallery .box {
-        width: 50%;
+        width: 100%;
         padding-bottom: 50%;
     }
 }
 @media only screen and (min-width : 480px) {
     /* Small desktop / ipad view: 3 tiles */
     .gallery .box {
-        width: 33.3%;
+        width: 50%;
         padding-bottom: 33.3%; /*  */
     }
 }
-@media only screen and (min-width : 999px) {
+@media only screen and (min-width : 9999px) {
    /* Medium desktop: 4 tiles */
    .box {
       width: 25%;
       padding-bottom: 25%;
    }
+}
+
+/* Fix caption alignment to center */
+.pswp__caption__center {
+    text-align: center !important;
 }
 
 /*

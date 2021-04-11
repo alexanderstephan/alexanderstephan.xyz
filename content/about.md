@@ -11,9 +11,9 @@ showDate: false
 ## About Me {#MEDIUM}
 
 - Enthusiast for various things including UNIX, keyboards & photography
-- Computer Science Student at Technical University Munich
+- Computer Science Student at [Technical University Munich](https://www.tum.de/https://www.tum.de/)
 - This blog will be either containing educational content or personal opinions
-- Totally into tea, will try to share this here as well
+- Totally into [tea](https://en.wikipedia.org/wiki/Tea), will try to share this here as well
 
 <br>
 <hr>
@@ -46,6 +46,7 @@ I had to develop a robot for my former school and document my experiences and as
 ### [Nixie Clock with Integrated Pomodoro Timer](https://github.com/alexanderstephan/coronixie) {#MEDIUM}
 
 I got a couple Nixie tubes from my grandpa, so I decided to build the ever so popular Nixie clock. I tought myself how to use KiCAD and created the PCB layouts. Once again I tried to aim for readily available parts and sizes that are suited for etching PCBs at home.
+
 <br>
 <hr>
 <br>
