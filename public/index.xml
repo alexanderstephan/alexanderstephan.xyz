@@ -8,7 +8,7 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 09 Mar 2021 20:21:37 +0000</lastBuildDate><atom:link href="https://alexanderstephan.xyz/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Installing Syncthing alongside Nextcloud using Raspberry Pi</title>
+      <title>Installing Syncthing alongside Nextcloud</title>
       <link>https://alexanderstephan.xyz/posts/syncthing/</link>
       <pubDate>Tue, 09 Mar 2021 20:21:37 +0000</pubDate>
       
@@ -63,14 +63,15 @@ Prerequisites  A working Arch Linux boot stick  sudo dd if=&amp;lt;path-to-image
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://alexanderstephan.xyz/gallery/</guid>
-      <description>Lenses  Sigma Art 19mm F2.8 DN6  Bodies  Olympus PEN E-PL5 Olympus Vf-4 Electronic Viewfinder     Augsburg
+      <description>Augsburg
       Berry
       Blossom
       Bugs
       Chess
       Dry
       Moon
-      Snowdrops</description>
+      Snowdrops
+                                     Lenses  Sigma Art 19mm F2.</description>
     </item>
     
     <item>

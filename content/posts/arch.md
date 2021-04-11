@@ -188,5 +188,3 @@ sudo pacman -S sway dmenu rxvt-unicode xorg-server-xwayland
 You can start sway by adding it to the end of your `~/.bashrc`.
 
 For further customization please refer to my [dotfiles repo](https://github.com/alexanderstephan/dotfiles).
-
-I hope this was helpful!

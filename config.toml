@@ -25,11 +25,11 @@ theme = "smol"
 
 # Header
 [menu]
-      [[menu.main]]
-           identifier = "gallery"
-           name = "Photo"
-           url = "/gallery/"
-           weight = 2
+      #[[menu.main]]
+           #identifier = "gallery"
+           #name = "Photo"
+           #url = "/gallery/"
+           #weight = 2
 
       [[menu.main]]
             identifier = "personal"

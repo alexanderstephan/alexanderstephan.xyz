@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Installing Syncthing alongside Nextcloud using Raspberry Pi"
+title:  "Installing Syncthing alongside Nextcloud"
 date:   2021-03-09 20:21:37
 categories: [tutorial]
 comments: false

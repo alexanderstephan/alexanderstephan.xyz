@@ -103,6 +103,11 @@ img {
     font-weight: 1000;
 }
 
+.share-btn:hover {
+    	fill: grey;
+}
+
+
 .center {
     display: block;
     margin-left: auto;
@@ -194,15 +199,10 @@ ul.share-icons li > * .label {
     display: inline-flex;
     width: 18px;
     height: 18px;
-	fill: rgb(0, 0, 0);
+    fill: rgb(0, 0, 0);
     border: none;
     text-decoration: none;
     padding-right: 5mm;
-}
-
-.share-btn:hover {
-	color: #ffffff !important;
-    fill: #33dd7a;
 }
 
 .share-btn:active {
@@ -257,7 +257,7 @@ article {
     }
 
     a:link, a:visited {
-        color: #30dd8c;
+        color: #7deeba;
     }
 
     a:hover {
@@ -277,7 +277,7 @@ article {
         text-transform: lowercase;
         font-family: sans-serif;
         text-decoration: none;
-        color: #fff;
+        color: #91e615;
         font-weight: 1000;
     }
 
@@ -301,7 +301,7 @@ article {
 
     h1,h2,h3 {
         line-height:1.0;
-        color: #30b4dd;
+        color: #fff;
     }
 
     #MEDIUM {
