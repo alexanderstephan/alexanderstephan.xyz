@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Getting started with Arch Linux</title>
+	
+	<meta name="author" content="Alexander Stephan">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	<a id="logo" href="http://discolovers.de/">Hi, I&#39;m Alex</a><br>
+	<nav>
+			<a id="entry" href="/"><b>Start</b></a>
+			
+			
+			<a id="entry" href="/posts/"><b>Posts</b></a>
+			
+			<a id="entry" href="/photo/"><b>Photo</b></a>
+			
+			<a id="entry" href="/about/"><b>About</b></a>
+			
+	</nav>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Getting started with Arch Linux</h1>
+			
+			
+		       
+
+			<div>
+				<h2 id="warranty-disclaimer">Warranty Disclaimer:</h2>
+<p>I am not responsible for data loss, possible hardware failures, thermonuclear war, or you getting fired because your arch driven atomic plant failed.</p>
+<p>If you have any concerns regarding the installation don’t hesitate to do some research on your own to prevent possible failures or bugs.</p>
+<p>After booting the arch iso you’ll will have to proceed with the following steps:</p>
+<h2 id="prerequisites">Prerequisites:</h2>
+<ul>
+<li>A working <a href="https://www.archlinux.org/download/">Arch Linux</a> boot stick</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dd <span style="color:#66d9ef">if</span><span style="color:#f92672">=</span>&lt;path-to-image.iso&gt; of<span style="color:#f92672">=</span>/dev/&lt;name-of-usb&gt; bs<span style="color:#f92672">=</span>4M status<span style="color:#f92672">=</span>progress
+</code></pre></div><ul>
+<li>A BIOS that is capable of UEFI</li>
+</ul>
+<h2 id="step-1-prepare-root-file-system">Step 1: Prepare root file system</h2>
+<p>Temporarily load your preferred keyboard layout.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">loadkeys de
+</code></pre></div><p>Find out your block device name (<code>-Sp</code> makes it easier to recognize the drive).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">lsblk -Sp
+</code></pre></div><p>For quick formatting use <code>parted</code>, otherwise you can proceed using <code>fdisk</code> or <code>gdisk</code>.</p>
+<h3 id="option-1">Option 1:</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">parted
+mkpart primary fat32 1MiB 261MiBi <span style="color:#75715e"># Create EFI system partition</span>
+set <span style="color:#ae81ff">1</span> esp on
+mkpart primary ext4 261MiB 100% <span style="color:#75715e"># Use the rest as ext4</span>
+</code></pre></div><p>This command creates a primary GPT partition on your device and a 260MiB boot partition at the start sector that will later become the EFI partiton for UEFI boot. Then we use the rest of the drive for installing the system. Of course you can tweak these commands according to your specific needs.</p>
+<h3 id="option-2">Option 2:</h3>
+<p>Type in <code>fdisk</code> and navigate your way through the dialogs.</p>
+<p>Now you can format both partitions you just created to your desired filesystem.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkfs.vfat /dev/&lt;devicename&gt;1
+mkfs.ext4 /dev/&lt;devicename&gt;2
+</code></pre></div><p>Mount devices so we can install the base root system on our drive.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir /mnt/boot/
+mount /dev/&lt;devicename&gt;2 /mnt
+mount /dev/&lt;devicename&gt;1 /mnt/boot/
+</code></pre></div><p>Install the base system including developer tools and patches for Intel processors on target device.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">pacstrap /mnt base base-devel intel-ucode
+</code></pre></div><p>Generate <code>fstab</code> (contains all drives that will be mounted during booting).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">genfstab -p /mnt &gt; /mnt/etc/fstab
+</code></pre></div><h2 id="step-2-setup-the-new-root-system">Step 2: Setup the new root system</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">arch-chroot /mnt
+</code></pre></div><p>Now, as we moved to our new system, we can proceed to set all the basic parameters and settings. A good start is to set the host name:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">echo myhost &gt; /etc/hostname
+</code></pre></div><p>Now we want to set our language. We do that by writing the LANG	variable to <code>/etc/locale.conf</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">echo LANG<span style="color:#f92672">=</span>en_US.UTF-8 &gt; /etc/locale.conf
+</code></pre></div><p>Afterwards we want to uncomment the disired entry in <code>/etc/locale.gen</code> with the editor of your choice, so we can generate it in the next step with the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">locale-gen
+</code></pre></div><p>Now we can set our <a href="https://wiki.archlinux.org/index.php/Linux_console/Keyboard_configuration">keyboard layout</a>. You can check your current layout with <code>localectl status</code> and to print all options use <code>localectl list-keymaps</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">echo KEYMAP<span style="color:#f92672">=</span>de-latin1 &gt; /etc/vconsole.conf
+</code></pre></div><p>In the next step we should set our <a href="https://wiki.archlinux.org/index.php/System_time#Time_zone">time zone</a>. To check out the current time zone use <code>timedatectl status</code>. To list all time zones use <code>timedatectl list-timezones</code>. Later we can install an NTP client that automatically syncs the clock over the network.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
+</code></pre></div><p>It&rsquo;s also a good idea to rank the mirros, so we can have faster download speeds when installing software. You can either manually sort them or use <a href="https://wiki.archlinux.org/index.php/Reflector">Reflector</a>. This command for example sorts the 5 most recent mirrors by download speed. If you want only mirrors for your specific country use <code>-- country</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">reflector --verbose --latest <span style="color:#ae81ff">50</span> --sort rate --protocol https --save /etc/pacman.d/mirrorlist
+</code></pre></div><p>To continously refresh the mirrorlist we can create the file <code>/etc/pacman.d/hooks/mirrorupgrade.hook</code>.</p>
+<pre><code>[Trigger]
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Updating pacman-mirrorlist with reflector and removing pacnew...
+When = PostTransaction
+Depends = reflector
+Exec = /bin/sh -c &quot;reflector --country 'United Germany' --latest 50 --age 24 --sort rate --save /etc/pacman.d/mirrorlist; rm -f /etc/pacman.d/mirrorlist.pacnew&quot;
+</code></pre><p>Now we should set up our local domains, so we can things like <code>localhost</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">reflector --verbose --latest <span style="color:#ae81ff">50</span> --sort rate --protocol https --save /etc/pacman.d/mirrorlist
+</code></pre></div><p>Also for compabilities sake it&rsquo;s a good idea to enable 32-bit libraries. Do that by uncommenting  the<code>[multilib]</code> entry in <code>/etc/pacman.conf</code>.
+To refresh the mirrorlist use <code>pacman -Sy</code>.</p>
+<p>A root password is always a good idea. Create one by using <code>passwd</code>.</p>
+<p>Create an initramfs that loads programs very early in the <code>userspace</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkinitcpio -p linux
+</code></pre></div><p>Now we need to install a boot loader. If you use UEFI you can do the following after installing it with <code>pacman -S grub</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>/boot --bootloader-id<span style="color:#f92672">=</span>grub
+grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre></div><p>Now we can create a non-root user and add him to any group for example <code>wheel</code> and <code>audio</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">useradd -m -g users -s /bin/bash alex
+gpasswd -a alex wheel audio
+</code></pre></div><p>Automatically set the system time:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">systemctl enable --now systemd-timesyncd.service
+</code></pre></div><h2 id="step-3-moving-to-a-graphical-environment">Step 3: Moving to a graphical environment</h2>
+<p>Now, as we have a layed down a solid foundation for our system we can move on by installing a window manager or a desktop environment to finally feel at home. For better performance install a sufficient driver. The open source drivers are <code>xf86-video-intel</code> for Intel, <code>xf86-video-amdgpu</code> for AMD and finally <code>xf86-video-nouveau</code> for Nvidia users.</p>
+<p>If you don&rsquo;t rely on any X depenend software, I&rsquo;d recommend you to give <a href="https://swaywm.org/">sway</a> a try. Installing it via pacman will also install all important dependencies.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo pacman -S sway dmenu rxvt-unicode xorg-server-xwayland
+</code></pre></div><p>You can start sway by adding it to the end of your <code>~/.bashrc</code>.</p>
+<p>For further customization please refer to my <a href="https://github.com/alexanderstephan/dotfiles">dotfiles repo</a>.</p>
+<p>I hope this was helpful!</p>
+
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/arch/">Getting started with Arch Linux</a></li>
+				
+				<li><a href="/posts/gh60/">Programming a GH60</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<div class="footer">
+	<p>&copy; 2020 <a href="http://discolovers.de/"><b>Alexander Stephan</b></a>
+		<div id="footer-entry"></div>
+	<a href="https://github.com/alexanderstephan"><b>⌨️</b></a>
+	<a href="https://www.flickr.com/people/155232150@N04/"><b>📷</b></a>
+	<a href="/imprint"><b>Imprint</b></a>
+	</p>
+	</div>
+
+	</div>
+</footer>
+</body>
+</html>

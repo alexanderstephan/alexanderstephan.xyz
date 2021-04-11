@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>microcontrollers on Hi, I&#39;m Alex</title>
+    <link>https://alexanderstephan.xyz/tags/microcontrollers/</link>
+    <description>Recent content in microcontrollers on Hi, I&#39;m Alex</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 Oct 2018 15:07:19 +0000</lastBuildDate><atom:link href="https://alexanderstephan.xyz/tags/microcontrollers/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Programming a GH60</title>
+      <link>https://alexanderstephan.xyz/posts/gh60/</link>
+      <pubDate>Mon, 22 Oct 2018 15:07:19 +0000</pubDate>
+      
+      <guid>https://alexanderstephan.xyz/posts/gh60/</guid>
+      <description>I recently wanted to update my keyboards layout and thought it was a good opportunity to come with a guide since many friends keep asking me how to flash their keyboard on Linux. In this case I am requiring an Atmel-based PCB as we’re using DFU-Programmer which is developed for Atmel-Microcontrollers. But there is a good chance, that you have one in your keyboard as well since they are the most popular manufacturer for microcontrollers.</description>
+    </item>
+    
+  </channel>
+</rss>

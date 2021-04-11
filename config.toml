@@ -1,0 +1,58 @@
+baseURL = "https://alexanderstephan.xyz/"
+languageCode = "en-us"
+title = "Hi, I'm Alex"
+theme = "smol"
+
+    
+# Parameters
+[params]
+    subtitle = "Social links here"
+    dateFmt = "02.01.2006 15:04"
+    author = "Alexander Stephan"
+    contact = "alexander [dot] stephan [at] tum [dot] de"
+    showDate = true
+
+# Enter your social media links her
+[params.social.share]
+	github = true
+	github_link = "https://github.com/alexanderstephan"
+
+	flickr = true
+	flickr_link = "https://www.flickr.com/photos/155232150@N04"
+
+	mixcloud = true
+	mixcloud_link = "https://www.mixcloud.com/alexander_stephan/"
+
+# Header
+[menu]
+      [[menu.main]]
+           identifier = "gallery"
+           name = "Photo"
+           url = "/gallery/"
+           weight = 2
+
+      [[menu.main]]
+            identifier = "personal"
+            name = "About"
+            url = "/about/"
+            weight = 2
+
+
+[markup]
+   [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true 
+      xhtml = true 
+
+    [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineAnchors = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokai"
+    tabWidth = 4

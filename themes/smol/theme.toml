@@ -1,0 +1,17 @@
+name = "smol"
+license = "MIT"
+licenselink = "https://github.com/colorchestra/smol/blob/master/LICENSE.md"
+description = "Minimal hugo theme"
+homepage = "https://github.com/colorchestra/smol"
+tags = ["blog", "minimal", "monospace", "dark mode", "simple", "clean", "light", "responsive", "fast", "no-js", "no-tracking", "privacy"]
+features = ["blog", "privacy", "responsive", "fast"]
+min_version = "0.20"
+
+[author]
+  name = "Alexander Stephan"
+  homepage = "alexanderstephan.xyz"
+
+[original]
+  author = "Vimux"
+  homepage = "https://github.com/Vimux"
+  repo = "https://github.com/colorchestra/blank"

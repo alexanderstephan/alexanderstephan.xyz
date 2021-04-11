@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Programming a GH60</title>
+	
+	<meta name="author" content="Alexander Stephan">
+	<link rel="stylesheet" href="/css/style.css">
+	
+	
+</head>
+<body>
+	<header>
+	<a id="logo" href="http://discolovers.de/">Hi, I&#39;m Alex</a><br>
+	<nav>
+			<a id="entry" href="/"><b>Start</b></a>
+			
+			
+			<a id="entry" href="/posts/"><b>Posts</b></a>
+			
+			<a id="entry" href="/photo/"><b>Photo</b></a>
+			
+			<a id="entry" href="/about/"><b>About</b></a>
+			
+	</nav>
+	
+</header>
+
+	
+	<main>
+		<article>
+			<h1>Programming a GH60</h1>
+			
+			
+		       
+
+			<div>
+				<p>I recently wanted to update my keyboards layout and thought it was a good opportunity to come with a guide since many friends keep asking me how to flash their keyboard on Linux. In this case I am requiring an Atmel-based PCB as we’re using DFU-Programmer which is developed for Atmel-Microcontrollers. But there is a good chance, that you have one in your keyboard as well since they are the most popular manufacturer for micro controllers.</p>
+<p>Install prerequisites:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo pacman -S python python-pip python-wxpython  dfu-programmer
+</code></pre></div><p>First of all we need to come up with our layout, which we use easykeymap.sh from the EasyAVR package for. It also generates a .hex file which we later use for flashing. In order to run easykeymap.sh we need to clone the project from GitLab.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone https://gitlab.com/ChuckN408/EasyAVR.git <span style="color:#f92672">&amp;&amp;</span> cd EasyAVR
+sudo ./easykeymap.sh
+</code></pre></div><p>Firstly you need to create a new layout file and select your board accordingly. In my case it’s a GH60. There is also an option that lets you roughly determine the keyboard layout. In my case I selected ISO here as it’s the standard here in Europe. Now you can either further modify your selected layout in <code>easykeymapper</code> itself or use one from an external source. For example you can generate layout files online by using the [keyboard-layout-editor(https://keyboard-layout-editor.com).</p>
+<p>To map the keys select the key you want to remap and click on the white rectangle beneath the scan code in the context menu. Now a virtual keyboard assists you in finding the correct key. In order to use function layers, you need to define a key as <code>Fn1</code>, <code>Fn0</code> will not work. If you finished your layout you can go ahead and save it now in .json format for later modifications.</p>
+<p>Now you need to export the <code>.hex</code> file, that we will going to flash on to the keyboards microcontroller. To program your board you can either choose the “Build &amp; Program” option or use <code>dfu-programmer</code> manually. I prefer the by hand method for security reasons since it doesn’t require you to open <code>easykeymapper</code> as <code>root</code> user. But keep in mind that you first need to put your board into boot mode by either pressing a reset button at the back of your PCB or use a predefined boot button.</p>
+<p>The programming steps are as follows. If you’re board uses a different microntroller than the atmega32u4 simply replace the name. But keep in mind you need to use a second keyboard to enter the commands. Alternatively you can use a <a href="https://gist.github.com/alexanderstephan/655e9fc4ab07f268af271c4084c19fef">script</a> as well.</p>
+<p>Using the script:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wget https://gist.githubusercontent.com/alexanderstephan/655e9fc4ab07f268af271c4084c19fef/raw/bee744308b81e524557fde6ad2890ba4a74414da/gh60.sh -O gh60.sh
+chmod +x gh60.sh
+sudo ./gh60.sh
+</code></pre></div><p>Or just do it manually, if you only do it once in a while.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dfu-programmer atmega32u4 erase --suppress-validation
+dfu-programmer atmega32u4 flash &lt;filename&gt;.hex
+</code></pre></div>
+			</div>
+		</article>
+	</main>
+<aside>
+	<div>
+		<div>
+			<h3>LATEST POSTS</h3>
+		</div>
+		<div>
+			<ul>
+				
+				<li><a href="/posts/arch/">Getting started with Arch Linux</a></li>
+				
+				<li><a href="/posts/gh60/">Programming a GH60</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</aside>
+
+
+	<footer>
+	<div class="footer">
+	<p>&copy; 2020 <a href="http://discolovers.de/"><b>Alexander Stephan</b></a>
+		<div id="footer-entry"></div>
+	<a href="https://github.com/alexanderstephan"><b>⌨️</b></a>
+	<a href="https://www.flickr.com/people/155232150@N04/"><b>📷</b></a>
+	<a href="/imprint"><b>Imprint</b></a>
+	</p>
+	</div>
+
+	</div>
+</footer>
+</body>
+</html>
