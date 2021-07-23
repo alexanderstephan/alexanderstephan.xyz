@@ -2,7 +2,6 @@ baseURL = "https://alexanderstephan.xyz/"
 languageCode = "en-us"
 title = "Hi, I'm Alex"
 theme = "smol"
-
     
 # Parameters
 [params]
@@ -11,6 +10,7 @@ theme = "smol"
     author = "Alexander Stephan"
     contact = "alexander [dot] stephan [at] tum [dot] de"
     showDate = true
+    math = true
 
 # Enter your social media links her
 [params.social.share]
@@ -43,16 +43,7 @@ theme = "smol"
       hardWraps = false
       unsafe = true 
       xhtml = true 
-
     [markup.highlight]
-    anchorLineNos = false
-    codeFences = true
-    guessSyntax = false
-    hl_Lines = ""
-    lineAnchors = ""
-    lineNoStart = 1
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = true
-    style = "monokai"
-    tabWidth = 4
+        style = "nord"
+
+  

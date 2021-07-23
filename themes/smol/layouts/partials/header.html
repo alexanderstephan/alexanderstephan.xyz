@@ -1,109 +1,114 @@
 <header>
-	<a id="logo" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
-		<div id="social-entries-alt">
+    <a id="logo" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    <div id="social-entries-alt">
 
-		<!-- Social Share Button HTML -->
-		{{- if .Param "social" }}
-		{{ $title := .Title }}
-		{{ $url := printf "%s" .Permalink }}
-		{{ $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n" $url "\n" }}
+        <!-- Includes KaTeX support, see https://dawnarc.com/2019/09/hugokatex-intergration/ -->
+        {{ if .Site.Params.math }}
+        {{ partial "math.html" . }}
+        {{ end }}
 
-		<!-- Twitter -->
-		{{ if .Site.Params.social.share.twitter }}
-		<a href="https://twitter.com/intent/tweet?hashtags=codingnconcepts&amp;url={{ .Permalink }}&amp;text={{ .Title }}"
-			target="_blank" rel="noopener" aria-label="Share on Twitter" class="share-btn twitter">
-			{{ partial "svg/twitter.svg" (dict "class" "widget-social__link-icon") }}
-			<p>Twitter</p>
-		</a>
-		{{ end }}
+        <!-- Social Share Button HTML -->
+        {{- if .Param "social" }}
+        {{ $title := .Title }}
+        {{ $url := printf "%s" .Permalink }}
+        {{ $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n" $url "\n" }}
 
-		<!-- Email -->
-		{{ if .Site.Params.social.share.email }}
-		<a href="mailto:?subject={{ .Site.Title }} - {{ $title }}.&amp;body={{ $body }}" target="_blank"
-			class="share-btn email">
-			{{ partial "svg/email.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
+        <!-- Twitter -->
+        {{ if .Site.Params.social.share.twitter }}
+        <a href="https://twitter.com/intent/tweet?hashtags=codingnconcepts&amp;url={{ .Permalink }}&amp;text={{ .Title }}"
+           target="_blank" rel="noopener" aria-label="Share on Twitter" class="share-btn twitter">
+            {{ partial "svg/twitter.svg" (dict "class" "widget-social__link-icon") }}
+            <p>Twitter</p>
+        </a>
+        {{ end }}
 
-		<!-- GitHub -->
-		{{ if .Site.Params.social.share.github }}
-		<a href="{{ .Site.Params.social.share.github_link }}" target="_blank" rel="noopener" class="share-btn github">
-			{{ partial "svg/github.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
+        <!-- Email -->
+        {{ if .Site.Params.social.share.email }}
+        <a href="mailto:?subject={{ .Site.Title }} - {{ $title }}.&amp;body={{ $body }}" target="_blank"
+                                                                                         class="share-btn email">
+            {{ partial "svg/email.svg" (dict "class" "widget-social__link-icon") }}
+        </a>
+        {{ end }}
 
-		<!-- Flickr -->
-		{{ if .Site.Params.social.share.flickr }}
-		<a href="{{ .Site.Params.social.share.flickr_link }}" target="_blank" rel="noopener" class="share-btn flickr">
-			{{ partial "svg/flickr.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
+        <!-- GitHub -->
+        {{ if .Site.Params.social.share.github }}
+        <a href="{{ .Site.Params.social.share.github_link }}" target="_blank" rel="noopener" class="share-btn github">
+            {{ partial "svg/github.svg" (dict "class" "widget-social__link-icon") }}
+        </a>
+        {{ end }}
 
-		<!-- Mixcloud -->
-		{{ if .Site.Params.social.share.mixcloud }}
-		<a href="{{ .Site.Params.social.share.mixcloud_link }}" target="_blank" rel="noopener"
-			class="share-btn mixcloud">
-			{{ partial "svg/mixcloud.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
-		{{- end }}
-		</div>
-	<nav>
-		<div id="links">
-		{{ with .Site.Menus.main }}
-		<a id="entry" href="/"><b>Home</b></a>
-		{{ range . }}
-		<a id="entry" href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>
-		{{ end }} {{ end }}
-		</div>
+        <!-- Flickr -->
+        {{ if .Site.Params.social.share.flickr }}
+        <a href="{{ .Site.Params.social.share.flickr_link }}" target="_blank" rel="noopener" class="share-btn flickr">
+            {{ partial "svg/flickr.svg" (dict "class" "widget-social__link-icon") }}
+        </a>
+        {{ end }}
 
-		<div id="social-entries">
+        <!-- Mixcloud -->
+        {{ if .Site.Params.social.share.mixcloud }}
+        <a href="{{ .Site.Params.social.share.mixcloud_link }}" target="_blank" rel="noopener"
+                                                                                class="share-btn mixcloud">
+            {{ partial "svg/mixcloud.svg" (dict "class" "widget-social__link-icon") }}
+        </a>
+        {{ end }}
+        {{- end }}
+    </div>
+    <nav>
+        <div id="links">
+            {{ with .Site.Menus.main }}
+            <a id="entry" href="/"><b>Home</b></a>
+            {{ range . }}
+            <a id="entry" href="{{ .URL | relURL }}"><b>{{ .Name }}</b></a>
+            {{ end }} {{ end }}
+        </div>
 
-		<!-- Social Share Button HTML -->
-		{{- if .Param "social" }}
-		{{ $title := .Title }}
-		{{ $url := printf "%s" .Permalink }}
-		{{ $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n" $url "\n" }}
+        <div id="social-entries">
 
-		<!-- Twitter -->
-		{{ if .Site.Params.social.share.twitter }}
-		<a href="https://twitter.com/intent/tweet?hashtags=codingnconcepts&amp;url={{ .Permalink }}&amp;text={{ .Title }}"
-			target="_blank" rel="noopener" aria-label="Share on Twitter" class="share-btn twitter">
-			{{ partial "svg/twitter.svg" (dict "class" "widget-social__link-icon") }}
-			<p>Twitter</p>
-		</a>
-		{{ end }}
+            <!-- Social Share Button HTML -->
+            {{- if .Param "social" }}
+            {{ $title := .Title }}
+            {{ $url := printf "%s" .Permalink }}
+            {{ $body := print $title ", by " .Site.Title "\n" .Params.description "\n\n" $url "\n" }}
 
-		<!-- Email -->
-		{{ if .Site.Params.social.share.email }}
-		<a href="mailto:?subject={{ .Site.Title }} - {{ $title }}.&amp;body={{ $body }}" target="_blank"
-			class="share-btn email">
-			{{ partial "svg/email.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
+            <!-- Twitter -->
+            {{ if .Site.Params.social.share.twitter }}
+            <a href="https://twitter.com/intent/tweet?hashtags=codingnconcepts&amp;url={{ .Permalink }}&amp;text={{ .Title }}"
+               target="_blank" rel="noopener" aria-label="Share on Twitter" class="share-btn twitter">
+                {{ partial "svg/twitter.svg" (dict "class" "widget-social__link-icon") }}
+                <p>Twitter</p>
+            </a>
+            {{ end }}
 
-		<!-- GitHub -->
-		{{ if .Site.Params.social.share.github }}
-		<a href="{{ .Site.Params.social.share.github_link }}" target="_blank" rel="noopener" class="share-btn github">
-			{{ partial "svg/github.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
+            <!-- Email -->
+            {{ if .Site.Params.social.share.email }}
+            <a href="mailto:?subject={{ .Site.Title }} - {{ $title }}.&amp;body={{ $body }}" target="_blank"
+                                                                                             class="share-btn email">
+                {{ partial "svg/email.svg" (dict "class" "widget-social__link-icon") }}
+            </a>
+            {{ end }}
 
-		<!-- Flickr -->
-		{{ if .Site.Params.social.share.flickr }}
-		<a href="{{ .Site.Params.social.share.flickr_link }}" target="_blank" rel="noopener" class="share-btn flickr">
-			{{ partial "svg/flickr.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
+            <!-- GitHub -->
+            {{ if .Site.Params.social.share.github }}
+            <a href="{{ .Site.Params.social.share.github_link }}" target="_blank" rel="noopener" class="share-btn github">
+                {{ partial "svg/github.svg" (dict "class" "widget-social__link-icon") }}
+            </a>
+            {{ end }}
 
-		<!-- Mixcloud -->
-		{{ if .Site.Params.social.share.mixcloud }}
-		<a href="{{ .Site.Params.social.share.mixcloud_link }}" target="_blank" rel="noopener"
-			class="share-btn mixcloud">
-			{{ partial "svg/mixcloud.svg" (dict "class" "widget-social__link-icon") }}
-		</a>
-		{{ end }}
-		{{- end }}
-		</div>
-	</nav>
+            <!-- Flickr -->
+            {{ if .Site.Params.social.share.flickr }}
+            <a href="{{ .Site.Params.social.share.flickr_link }}" target="_blank" rel="noopener" class="share-btn flickr">
+                {{ partial "svg/flickr.svg" (dict "class" "widget-social__link-icon") }}
+            </a>
+            {{ end }}
+
+            <!-- Mixcloud -->
+            {{ if .Site.Params.social.share.mixcloud }}
+            <a href="{{ .Site.Params.social.share.mixcloud_link }}" target="_blank" rel="noopener"
+                                                                                    class="share-btn mixcloud">
+                {{ partial "svg/mixcloud.svg" (dict "class" "widget-social__link-icon") }}
+            </a>
+            {{ end }}
+            {{- end }}
+        </div>
+    </nav>
 </header>
