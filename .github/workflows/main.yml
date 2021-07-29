@@ -24,4 +24,4 @@ jobs:
           password: ${{ secrets.password }}
           protocol: ftps
           port: ${{ secrets.port }}
-          local-dir: public
+          local-dir: public/
