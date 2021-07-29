@@ -19,8 +19,8 @@ jobs:
       - name: Deploy file
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          username: ${{ secrets.username }}
-          server: ${{ secrets.server }}
+          username: '${{ secrets.username }}'
+          server: '${{ secrets.server }}'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
           local_path: './public/*'
           remote_path: '/var/www/html'
