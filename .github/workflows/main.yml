@@ -1,4 +1,4 @@
-name: Build Site
+name: Build and Deploy Site
 
 on:
   push:
@@ -16,3 +16,12 @@ jobs:
           submodules: true
       - name: Build Site
         uses: chabad360/hugo-actions@master
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        with:
+          server: ${{ secrets.server }}
+          username: ${{ secrets.user }}
+          password: ${{ secrets.password }}
+          protocol: ftps
+          port: ${{ secrets.port }}
+          local-dir: public
