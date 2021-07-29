@@ -16,11 +16,12 @@ jobs:
           submodules: true
       - name: Build Site
         uses: chabad360/hugo-actions@master
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      - name: Deploy file
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.server }}
           username: ${{ secrets.username }}
-          password: ${{ secrets.password }}
-          port: ${{ secrets.port }}
-          local-dir: public/
+          server: ${{ secrets.server }}
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} 
+          local_path: './public/*'
+          remote_path: '/var/www/html'
+          args: '-o ConnectTimeout=5'
