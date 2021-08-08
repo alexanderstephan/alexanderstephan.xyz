@@ -25,4 +25,4 @@ jobs:
           protocol: ftps
           port:  ${{ secrets.port }}
           local-dir: './public/'
-          server-dir: '/var/www/html'
+          server-dir: '/var/www/html/'
