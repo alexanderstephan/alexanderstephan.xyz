@@ -1,0 +1,13 @@
+<footer>
+	<div id="footer-info">
+	&copy; {{ now.Year }}
+	<a href="{{ .Site.BaseURL }}">
+        <b>{{ .Site.Params.author }}</b>
+    </a>
+    
+    <!--<i>{{ .Site.Params.contact }}</i>-->
+    <!--<a href="{{ .Site.Params.URL }}/key_pub.asc">[PGP Key]</a>-->
+    {{- range .Site.Menus.footer }}
+    {{- end }}
+    </div>
+</footer>

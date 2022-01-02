@@ -5,44 +5,38 @@ html {
 body {
     max-width: 800px;
     margin: 20px auto;
-    padding: 0 10px;
-    font-size: 15px;
+    font-size: 16px;
     font-family: sans-serif;
     color: black;
     background-color: #f9f9f9;
     line-height: 1.5;
+    width: 95%;
 }
 
 h1,h2,h3 {
-    line-height:1.0;
-    color: #001E62;
-    text-align:left;
+    line-height: 1.0;
+    color: #001e62;
+    text-align: left;
 }
 
 a:link, a:visited {
-	text-decoration: none;
-	/* color: #009CDE; */
-	color: #001E62;
+    text-decoration: none;
+    color: #001e62;
 }
 
 a:hover {
-	color: #89ABE3;
+    color: #89abe3;
 }
 
 pre {
-    /*border-radius: 10px;*/
-    background:#272822;
-    padding:15px;
+    background: #1a1a1a;
+    padding: 15px;
     white-space: pre-wrap
 }
 
-article {
-    padding:24px 0;
-    text-align: justify;
-}
-
 nav {
-    margin-top:10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
     font-family: sans-serif;
     text-transform: lowercase;
     color: black;
@@ -56,36 +50,34 @@ nav {
 }
 
 img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: auto;
-	width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    width: 60%;
 }
 
 #pic {
-	border-radius: 60px;
-	width: 15%;
-        text-align: right;
+    border-radius: 60px;
+    width: 15%;
+    text-align: right;
 }
 
 #gif {
-	margin-bottom: 30px;
-	border-radius: 3px;
-	width: 40%;
+    margin-bottom: 30px;
+    border-radius: 3px;
+    width: 40%;
 }
 
 #social-entries {
     display: inline;
     text-align: right;
-    margin-left: 20px;
     color: black;
-    text-transform: inherit;
+    margin-left: 10px;
 }
 
 #social-entries-alt {
     display: none;
-    /* text-align: right;*/
     margin-left: 20px;
     color: black;
     text-transform: inherit;
@@ -98,12 +90,12 @@ img {
     text-decoration: none;
     color: #ffd24c;
     font-weight: 1000;
+    margin-right: 20px;
 }
 
 .share-btn:hover {
-    	fill: grey;
+    fill: grey;
 }
-
 
 .center {
     display: block;
@@ -120,6 +112,10 @@ img {
     text-decoration: underline;
 }
 
+#entry:hover {
+    color: grey;
+}
+
 #sub-entry {
     text-underline-offset: 15px;
     font-weight: lighter;
@@ -128,70 +124,15 @@ img {
     text-decoration: underline;
 }
 
-#entry:hover {
-    	color: grey;
-}
-
-.social-share {
-	position: relative;
-	top: -0.5em;
-}
- 
-.social-share ul {
-	margin: 0;
-}
- 
-.social-share ul li p {
-	display: none;
-}
- 
-.social-share .share-icons li {
-	padding: 0 !important;
-	padding-bottom: 10px !important;
-}
-
 .social-share-nav .share-btn h3 {
-	color: #ffffff;
+    color: #ffffff;
 }
 
 #footer-info {
-    display: block;
     margin-top: 30px;
+    display: block;
 }
 
-ul.share-icons {
-	cursor: default;
-	list-style: none;
-	background: #000000;
-}
-
-ul.share-icons li {
-	display: inline-block;
-	padding: 0 2em 0 0;
-}
-
-ul.share-icons li:last-child {
-	padding-right: 0;
-}
-
-ul.share-icons li > * {
-	text-decoration: none;
-	border: 0;
-}
-
-ul.share-icons li > *:before {
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	font-family: FontAwesome;
-	font-style: normal;
-	font-weight: normal;
-	text-transform: none !important;
-}
-
-ul.share-icons li > * .label {
-	display: none;
-}
- 
 .share-btn {
     display: inline-flex;
     width: 18px;
@@ -202,36 +143,18 @@ ul.share-icons li > * .label {
     padding-right: 5mm;
 }
 
-.share-btn:active {
-	position: relative;
-	top: 5px;
-	box-shadow: none;
-	color: #ffffff;
-	outline: none;
-}
-
-/* @media only screen and (min-width : 0px) and (max-width: 550px) {
-    #social-entries { display: none; } 
-} */
-/*
-@media only screen and (max-width : 550px) {
-    #social-entries { display: none; }
-    #social-entries-alt {display: inline; }
-}
-*/
-
 @media only screen and (min-width : 999px) {
-   #social-entries { display: inline; }
-   #social-entries-alt {display: none; }
+    #social-entries { display: inline; }
+    #social-entries-alt {display: none; }
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Roboto, Helvetica, sans-serif;
     text-underline-offset: 7px;
 }
 
 article {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif;
 }
 
 #BIG {
@@ -267,15 +190,14 @@ article {
     }
 
     .share-btn:hover {
-    	fill: grey;
+        fill: #ffd24c;
     }
-    
+
     #logo {
         font-size: 50px;
         text-transform: lowercase;
         font-family: sans-serif;
         text-decoration: none;
-        /* color: #ddcf00;*/
         color: #ffd24c;
         font-weight: 1000;
     }
@@ -283,12 +205,12 @@ article {
     #entry:hover {
         color: #c4c4c4 !important;
     }
-    
+
     #entry {
-	text-decoration: underline;
+        text-decoration: underline;
         color: white;
     }
-    
+
     .post-title {
         text-decoration: none;
     }
@@ -308,7 +230,7 @@ article {
         text-decoration: none;
     }
 
-    #sub-entry { 
+    #sub-entry {
         text-underline-offset: 10px;
         font-weight: lighter;
         margin-right: 10px;
@@ -316,3 +238,4 @@ article {
         text-decoration: underline;
     }
 }
+
