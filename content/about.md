@@ -2,28 +2,11 @@
 draft: false 
 showDate: false
 ---
-
-<!-- <br>
-<img align="center" id="pic" src="Alex2019.jpg"/>
-<br>
--->
-
-## About Me {#MEDIUM}
-
-- Enthusiast for various things including UNIX, keyboards & photography
-- Computer Science Student at [Technical University Munich](https://www.tum.de/https://www.tum.de/)
-- This blog will be either containing educational content or personal opinions
-- Totally into [tea](https://en.wikipedia.org/wiki/Tea), will try to share this here as well
-
-<br>
-<hr>
-<br>
-
 ## Projects {#MEDIUM}
 
 ### [Snake Clone Built for the Terminal Using goncurses](https://github.com/alexanderstephan/gobra){#MEDIUM}
 
-Wanted to learn `golang` and `ncurses`. This is the result. Enjoyed this project a lot since C libraries interface with golang really nicely.
+I wanted to learn `golang` and `ncurses`. This is the result. Enjoyed this project a lot since C libraries interface with golang really nicely.
 
 <br>
 <img align="center" id="gif" src="gobra.gif"/> 
