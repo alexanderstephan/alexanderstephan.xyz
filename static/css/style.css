@@ -82,7 +82,7 @@ img {
     text-align: center;
     justify-content: center;
     align-items: flex-start;
-    margin-left: 30px;
+    margin-left: 17px;
 }
 
 #logo {
@@ -142,7 +142,7 @@ img {
     fill: rgb(0, 0, 0);
     border: none;
     text-decoration: none;
-    padding-right: 5mm;
+    padding-right: 3mm;
 }
 
 @media only screen and (min-width : 500px) {
