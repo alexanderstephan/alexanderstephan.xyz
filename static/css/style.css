@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    max-width: 800px;
+    max-width: 900px;
     margin: 20px auto;
     font-size: 16px;
     font-family: sans-serif;
@@ -40,12 +40,11 @@ nav {
     font-family: sans-serif;
     text-transform: lowercase;
     color: black;
-    font-size: 30px;
+    font-size: 27px;
 }
 
 #links {
     display: inline;
-    width: 60%;
     text-decoration: none;
 }
 
@@ -77,10 +76,13 @@ img {
 }
 
 #social-entries-alt {
-    display: none;
-    margin-left: 20px;
+    display: inline;
     color: black;
     text-transform: inherit;
+    text-align: center;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 30px;
 }
 
 #logo {
@@ -135,17 +137,22 @@ img {
 
 .share-btn {
     display: inline-flex;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     fill: rgb(0, 0, 0);
     border: none;
     text-decoration: none;
     padding-right: 5mm;
 }
 
-@media only screen and (min-width : 999px) {
+@media only screen and (min-width : 500px) {
     #social-entries { display: inline; }
-    #social-entries-alt {display: none; }
+    #social-entries-alt { display: none; }
+}
+
+@media only screen and (max-width : 500px) {
+    #social-entries { display: none; }
+    #social-entries-alt { display: inline; }
 }
 
 h1 {
