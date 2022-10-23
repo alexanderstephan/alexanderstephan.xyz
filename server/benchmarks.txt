@@ -1,0 +1,88 @@
+**Go**
+
+Summary:
+  Total:	3.8867 secs
+  Slowest:	2.6758 secs
+  Fastest:	0.1327 secs
+  Average:	0.8058 secs
+  Requests/sec:	51.4570
+
+
+Response time histogram:
+  0.133 [1]	|■
+  0.387 [33]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.641 [46]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  0.896 [45]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.150 [32]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.404 [24]	|■■■■■■■■■■■■■■■■■■■■■
+  1.659 [14]	|■■■■■■■■■■■■
+  1.913 [4]	|■■■
+  2.167 [0]	|
+  2.422 [0]	|
+  2.676 [1]	|■
+
+
+Latency distribution:
+  10% in 0.3406 secs
+  25% in 0.4983 secs
+  50% in 0.7570 secs
+  75% in 1.0405 secs
+  90% in 1.3865 secs
+  95% in 1.5781 secs
+  99% in 1.8692 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0976 secs, 0.1327 secs, 2.6758 secs
+  DNS-lookup:	0.0020 secs, 0.0000 secs, 0.0075 secs
+  req write:	0.0001 secs, 0.0000 secs, 0.0016 secs
+  resp wait:	0.6233 secs, 0.1213 secs, 1.5801 secs
+  resp read:	0.0587 secs, 0.0002 secs, 1.0776 secs
+
+Status code distribution:
+  [200]	200 responses
+
+
+
+**Apache**
+
+Summary:
+  Total:	3.6089 secs
+  Slowest:	2.5965 secs
+  Fastest:	0.0464 secs
+  Average:	0.7208 secs
+  Requests/sec:	55.4178
+
+
+Response time histogram:
+  0.046 [1]	|■
+  0.301 [32]	|■■■■■■■■■■■■■■■■■■
+  0.556 [40]	|■■■■■■■■■■■■■■■■■■■■■■
+  0.811 [72]	|■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■
+  1.066 [24]	|■■■■■■■■■■■■■
+  1.321 [15]	|■■■■■■■■
+  1.576 [4]	|■■
+  1.831 [2]	|■
+  2.086 [5]	|■■■
+  2.341 [3]	|■■
+  2.596 [2]	|■
+
+
+Latency distribution:
+  10% in 0.2182 secs
+  25% in 0.4433 secs
+  50% in 0.6974 secs
+  75% in 0.8556 secs
+  90% in 1.2069 secs
+  95% in 1.8688 secs
+  99% in 2.4669 secs
+
+Details (average, fastest, slowest):
+  DNS+dialup:	0.0377 secs, 0.0464 secs, 2.5965 secs
+  DNS-lookup:	0.0180 secs, 0.0000 secs, 0.0735 secs
+  req write:	0.0001 secs, 0.0000 secs, 0.0011 secs
+  resp wait:	0.4832 secs, 0.0401 secs, 2.3230 secs
+  resp read:	0.1998 secs, 0.0003 secs, 1.8140 secs
+
+Status code distribution:
+  [200]	200 responses
+
