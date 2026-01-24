@@ -16,12 +16,14 @@ help:
 	@echo "  clean        - Remove Hugo and server build outputs"
 
 hugo-build:
-	cd $(HUGO_DIR) && $(HUGO)
+	cd $(HUGO_DIR) && $(HUGO) --minify --baseURL="https://alexanderstephan.xyz/" -D
 
 hugo-serve:
-	cd $(HUGO_DIR) && $(HUGO) server -D
+	cd $(HUGO_DIR) && $(HUGO) server
 
 server-build:
+	rm -rf server/static
+	cp -r public server/static
 	cd $(SERVER_DIR) && go build -o site main.go
 
 server-run:
