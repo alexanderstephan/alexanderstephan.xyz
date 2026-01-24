@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Getting started with Arch Linux"
+title:  "Getting Started With Arch Linux"
 date:   2018-10-22 15:07:19
 categories: [tutorial]
 comments: true
