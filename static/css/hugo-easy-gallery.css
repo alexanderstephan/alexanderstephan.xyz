@@ -10,10 +10,10 @@ Grid Layout Styles
 .gallery {
     overflow: hidden;
     margin: 10px;
-    max-width: 768px;
+    max-width: 1200px;
 }
 .gallery .box {
-    float: left;
+    float: right;
     position: relative;
     /* Default: 1 tile wide */
     width: 100%;
@@ -33,12 +33,13 @@ Grid Layout Styles
         padding-bottom: 33.3%; /*  */
     }
 }
-@media only screen and (min-width : 9999px) {
-   /* Medium desktop: 4 tiles */
-   .box {
-      width: 25%;
-      padding-bottom: 25%;
-   }
+
+@media only screen and (min-width : 1400px) {
+    /* Large desktop: 4 images per row */
+    .gallery .box {
+        width: 25%;
+        padding-bottom: 25%;
+    }
 }
 
 /* Fix caption alignment to center */
