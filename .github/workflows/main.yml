@@ -14,6 +14,10 @@ jobs:
         uses: actions/checkout@master
         with:
           submodules: true
+      - name: Lint Dockerfile with hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: server/Dockerfile
       - name: Build Site
         uses: chabad360/hugo-actions@master
       # Copy Hugo output to server/static for Go embed
