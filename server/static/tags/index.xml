@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on hi, i&#39;m Alex</title>
+    <link>https://alexanderstephan.xyz/tags/</link>
+    <description>Recent content in Tags on hi, i&#39;m Alex</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 28 Dec 2020 20:15:19 +0000</lastBuildDate><atom:link href="https://alexanderstephan.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>algorithms</title>
+      <link>https://alexanderstephan.xyz/tags/algorithms/</link>
+      <pubDate>Mon, 28 Dec 2020 20:15:19 +0000</pubDate>
+      
+      <guid>https://alexanderstephan.xyz/tags/algorithms/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>graphics</title>
+      <link>https://alexanderstephan.xyz/tags/graphics/</link>
+      <pubDate>Mon, 28 Dec 2020 20:15:19 +0000</pubDate>
+      
+      <guid>https://alexanderstephan.xyz/tags/graphics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>installation guide</title>
+      <link>https://alexanderstephan.xyz/tags/installation-guide/</link>
+      <pubDate>Mon, 22 Oct 2018 15:07:19 +0000</pubDate>
+      
+      <guid>https://alexanderstephan.xyz/tags/installation-guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keyboards</title>
+      <link>https://alexanderstephan.xyz/tags/keyboards/</link>
+      <pubDate>Mon, 22 Oct 2018 15:07:19 +0000</pubDate>
+      
+      <guid>https://alexanderstephan.xyz/tags/keyboards/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://alexanderstephan.xyz/tags/linux/</link>
+      <pubDate>Mon, 22 Oct 2018 15:07:19 +0000</pubDate>
+      
+      <guid>https://alexanderstephan.xyz/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>microcontrollers</title>
+      <link>https://alexanderstephan.xyz/tags/microcontrollers/</link>
+      <pubDate>Mon, 22 Oct 2018 15:07:19 +0000</pubDate>
+      
+      <guid>https://alexanderstephan.xyz/tags/microcontrollers/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
